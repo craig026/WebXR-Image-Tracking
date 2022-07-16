@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AR Marker Tracking</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .threejscanvas {
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 0;
+            }
+
+            .weboverlay {
+                position: absolute;
+                display: block;
+                z-index: 99;
+                color:red;
+                top: 2%;
+                width: 100%;
+                text-align: center;
+            }   
+        </style>
+	</head>
+	<body>
+        <canvas id="threejscanvas" class="threejscanvas"></canvas>
+        <div id="weboverlay" class="weboverlay">
+            <h2 id="qrRawDataDisplay">qr output</h2>
+        </div>
+        <img id='spaceCraftImage' src='./content/images/qr_spacecraft.png' alt='flower' style='display: none;'/>
+        <img id='earthImage' src='./content/images/qr_earth.png' alt='flower' style='display: none;'/>
+
+        <script type="module">
+            import { App } from './app.js';
+
+            document.addEventListener("DOMContentLoaded", function(){
+                const app = new App();
+                window.app = app;
+            });
+        </script>
+	</body>
+</html>
